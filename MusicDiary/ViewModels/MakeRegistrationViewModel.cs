@@ -1,4 +1,6 @@
 ﻿using MusicDiary.Commands;
+using MusicDiary.Services;
+using MusicDiary.Stores;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +10,7 @@ using System.Windows.Input;
 
 namespace MusicDiary.ViewModels
 {
-    class MakeRegistrationViewModel : ViewModelBase
+    public class MakeRegistrationViewModel : ViewModelBase
     {
         private string _newUsername;
         public string NewUsername
@@ -70,12 +72,13 @@ namespace MusicDiary.ViewModels
 
 
         public ICommand FinishTheRegistrationCommand { get; }
-        public ICommand BackToAutorizationFromCommand { get; }
+        public ICommand BackToAutorizationFormCommand { get; }
 
 
-        public MakeRegistrationViewModel()
+        public MakeRegistrationViewModel(NavigationService autorizationFormNavigationService)
         {
-            FinishTheRegistrationCommand = new MakeRegistrationCommand(this);
+            FinishTheRegistrationCommand = new MakeRegistrationCommand(this, autorizationFormNavigationService);
+            BackToAutorizationFormCommand = new NavigateCommand(autorizationFormNavigationService);
         }
     }
 }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using MusicDiary.Commands;
+using MusicDiary.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,9 +42,10 @@ namespace MusicDiary.ViewModels
         public ICommand LogInCommand { get; } 
         public ICommand HaveNoAccountCommand { get; }
 
-        public AutorizationFormViewModel()
+        public AutorizationFormViewModel(NavigationService makeRegistrationNavigationService, NavigationService mainMenuNavigationService)
         {
-
+            LogInCommand = new NavigateCommand(mainMenuNavigationService);
+            HaveNoAccountCommand = new NavigateCommand(makeRegistrationNavigationService);
         }
     }
 }
