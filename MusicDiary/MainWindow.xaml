@@ -7,7 +7,7 @@
         xmlns:views="clr-namespace:MusicDiary.Views"
         xmlns:vms="clr-namespace:MusicDiary.ViewModels"
         mc:Ignorable="d"
-        Title="MainWindow" MinHeight="785" MinWidth="900">
+        Title="MainWindow" MinHeight="820" MinWidth="900">
     <Grid >
         <Grid.Resources >
             <DataTemplate DataType="{x:Type vms:MakeRegistrationViewModel}" >
