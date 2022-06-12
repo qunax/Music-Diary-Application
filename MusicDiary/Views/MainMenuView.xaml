@@ -3,6 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:vms="clr-namespace:MusicDiary.ViewModels"
+             xmlns:views="clr-namespace:MusicDiary.Views"
              xmlns:local="clr-namespace:MusicDiary.Views"
              mc:Ignorable="d" 
              Background="#88CFC3" >
@@ -29,7 +31,14 @@
 
         </Grid>
         <Grid Grid.Column="1">
-            <Frame Name="AppInterfaceFrame" Background="#88CFC3" NavigationUIVisibility="Hidden"/>
+            <Grid.Resources >
+                <DataTemplate DataType="{x:Type vms:HomePageViewModel}" >
+                    <views:HomePageView />
+                </DataTemplate>
+                
+            </Grid.Resources>
+
+            <ContentControl Content="{Binding CurrentViewModel}" />
         </Grid>
     </Grid>
 </UserControl>

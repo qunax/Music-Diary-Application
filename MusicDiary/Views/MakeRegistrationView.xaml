@@ -21,7 +21,7 @@
                 <components:BindablePasswordBox materialDesign:HintAssist.Hint=" Confirm your Password" Password="{Binding RepeatPassword, UpdateSourceTrigger=PropertyChanged, Mode=TwoWay}" />
                 <TextBox materialDesign:HintAssist.Hint=" Enter your E-Mail" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Text="{Binding Email, UpdateSourceTrigger=PropertyChanged}"/>
                 <Button Content="Finish the Refistration" IsDefault="True" Margin="0 20 0 0" Command="{Binding FinishTheRegistrationCommand}"/>
-                <Button Content="Back"  Margin="0 0 0 0" Style="{StaticResource MaterialDesignFlatButton}" Command="{Binding BackToAutorizationFromCommand}"/>
+                <Button Content="Back"  Margin="0 0 0 0" Style="{StaticResource MaterialDesignFlatButton}" Command="{Binding BackToAutorizationFormCommand}"/>
             </StackPanel>
         </Border>
     </Grid>

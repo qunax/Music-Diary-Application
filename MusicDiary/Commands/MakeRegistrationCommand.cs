@@ -1,4 +1,5 @@
 ﻿using MusicDiary.Models;
+using MusicDiary.Services;
 using MusicDiary.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -9,16 +10,20 @@ using System.Threading.Tasks;
 
 namespace MusicDiary.Commands
 {
-    internal class MakeRegistrationCommand : CommandBase
+    public class MakeRegistrationCommand : CommandBase
     {
         private MakeRegistrationViewModel _makeRegistrationViewModel;
+        private readonly NavigationService _autorizationFormNavigationService;
 
 
-        public MakeRegistrationCommand(MakeRegistrationViewModel makeRegistrationViewModel)
+
+        public MakeRegistrationCommand(MakeRegistrationViewModel makeRegistrationViewModel, NavigationService autorizationFormNavigationService)
         {
             _makeRegistrationViewModel = makeRegistrationViewModel;
 
             _makeRegistrationViewModel.PropertyChanged += OnViewModelPropertyChanged;
+
+            _autorizationFormNavigationService = autorizationFormNavigationService;
         }
 
         private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -49,6 +54,9 @@ namespace MusicDiary.Commands
             user.UserName = _makeRegistrationViewModel.NewUsername;
             user.PassWord = _makeRegistrationViewModel.NewPassword;
             user.Email = _makeRegistrationViewModel.Email;
+
+
+            _autorizationFormNavigationService.Navigate();
         }
     }
 }

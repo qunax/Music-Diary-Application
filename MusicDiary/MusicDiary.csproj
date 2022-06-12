@@ -25,7 +25,6 @@
 
   <ItemGroup>
     <Folder Include="DBContexts\" />
-    <Folder Include="Navigation\" />
   </ItemGroup>
 
   <ItemGroup>
