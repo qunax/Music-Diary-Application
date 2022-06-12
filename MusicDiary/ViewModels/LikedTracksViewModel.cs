@@ -6,8 +6,11 @@ using System.Threading.Tasks;
 
 namespace MusicDiary.ViewModels
 {
-    public class HomePageViewModel : ViewModelBase
+    class LikedTracksViewModel : ViewModelBase
     {
+        public LikedTracksViewModel()
+        {
 
+        }
     }
 }

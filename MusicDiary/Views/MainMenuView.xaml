@@ -21,9 +21,9 @@
                 </Border.Effect>
                 <StackPanel>
                     <TextBlock Text="Hi, user!" FontSize="30" FontWeight="Bold" Margin="20 30 5 15" Height="44" />
-                    <Button Content="Liked Tracks" FontSize="17"  Margin="5 10 5 0" HorizontalContentAlignment="Left" Style="{StaticResource MaterialDesignFlatButton}"  />
-                    <Button Content="Artists" FontSize="17"  Margin="5 10 5 0" HorizontalContentAlignment="Left" Style="{StaticResource MaterialDesignFlatButton}"/>
-                    <Button Content="Albums" FontSize="17"  Margin="5 10 5 0" HorizontalContentAlignment="Left" Style="{StaticResource MaterialDesignFlatButton}"/>
+                    <Button Content="Liked Tracks" FontSize="17"  Margin="5 10 5 0" HorizontalContentAlignment="Left" Style="{StaticResource MaterialDesignFlatButton}" Command="{Binding OpenLikedTracksCommand}" Cursor="Hand" />
+                    <Button Content="Artists" FontSize="17"  Margin="5 10 5 0" HorizontalContentAlignment="Left" Style="{StaticResource MaterialDesignFlatButton}" Command="{Binding OpenLikedArtistsCommand}"/>
+                    <Button Content="Albums" FontSize="17"  Margin="5 10 5 0" HorizontalContentAlignment="Left" Style="{StaticResource MaterialDesignFlatButton}" Command="{Binding OpenLikedAlbumsCommand}"/>
                     <Button Content="My Playlists" FontSize="17"  Margin="5 10 5 0" HorizontalContentAlignment="Left" Style="{StaticResource MaterialDesignFlatButton}"/>
                     <Button Content="Generate a Playlist" FontSize="17"  Margin="5 10 5 0" HorizontalContentAlignment="Left" Style="{StaticResource MaterialDesignFlatButton}"/>
                 </StackPanel>
@@ -35,10 +35,19 @@
                 <DataTemplate DataType="{x:Type vms:HomePageViewModel}" >
                     <views:HomePageView />
                 </DataTemplate>
+                <DataTemplate DataType="{x:Type vms:LikedTracksViewModel}">
+                    <views:LikedTracksView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vms:LikedArtistsViewModel}" >
+                    <views:LikedArtistsView />
+                </DataTemplate>
+                <DataTemplate DataType="{x:Type vms:LikedAlbumsViewModel}" >
+                    <views:LikedAlbumsView />
+                </DataTemplate>
                 
             </Grid.Resources>
 
-            <ContentControl Content="{Binding CurrentViewModel}" />
+            <ContentControl Content="{Binding InnerCurrentViewModel}" />
         </Grid>
     </Grid>
 </UserControl>

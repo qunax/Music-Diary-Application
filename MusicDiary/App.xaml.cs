@@ -17,22 +17,27 @@ namespace MusicDiary
     public partial class App : Application
     {
         private readonly NavigationStore _navigationStore;
+        private readonly NavigationStore _innerNavigationStore;
 
         public App()
         {
             _navigationStore = new NavigationStore();
+            _innerNavigationStore = new NavigationStore();
         }
 
         protected override void OnStartup(StartupEventArgs e)
         {
-            _navigationStore.CurrentViewModel = CreateMakeRegistrationViewModel();
+            _navigationStore.CurrentViewModel = CreateAutorizationFormViewModel();
+            _innerNavigationStore.CurrentViewModel = CreateHomePageViewModel();
 
             MainWindow = new MainWindow()
             { 
-                
                 DataContext = new MainViewModel(_navigationStore)
             };
+
             MainWindow.Show();
+
+            
 
             base.OnStartup(e);
         }
@@ -50,7 +55,31 @@ namespace MusicDiary
 
         private MainMenuViewModel CreateMainMenuViewModel()
         {
-            return new MainMenuViewModel();
+            return new MainMenuViewModel(_innerNavigationStore,
+                new NavigationService(_innerNavigationStore, CreateLikedTracksViewModel),
+                new NavigationService(_innerNavigationStore, CreateLikedArtistsViewModel),
+                new NavigationService(_innerNavigationStore, CreateLikedAlbumsViewModel));
         }
+
+        private HomePageViewModel CreateHomePageViewModel()
+        {
+            return new HomePageViewModel();
+        }
+
+        private LikedTracksViewModel CreateLikedTracksViewModel()
+        {
+            return new LikedTracksViewModel();
+        }
+        
+        private LikedArtistsViewModel CreateLikedArtistsViewModel()
+        {
+            return new LikedArtistsViewModel();
+        }
+
+        private LikedAlbumsViewModel CreateLikedAlbumsViewModel()
+        {
+            return new LikedAlbumsViewModel();
+        }
+        
     }
 }
