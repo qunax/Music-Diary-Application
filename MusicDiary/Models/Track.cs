@@ -13,5 +13,7 @@ namespace MusicDiary.Models
         public Album Album { get; set; }
         public Artist Artist { get; set; }
 
+        public string Cover { get; set; }
+
     }
 }
