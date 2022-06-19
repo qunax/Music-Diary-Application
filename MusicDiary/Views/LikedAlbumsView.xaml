@@ -24,7 +24,7 @@
 
 
                 <Grid Grid.Column="0" >
-                    <Button  FontSize="17"  Margin="5 5 0 0" Height="70" Width="70" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignIconButton}"  >
+                    <Button  FontSize="17"  Margin="5 5 0 0" Height="70" Width="70" HorizontalAlignment="Center" Style="{StaticResource MaterialDesignIconButton}" Command="{Binding BackCommand}" >
                         <Image Source="back_button.png"  />
                     </Button>
                 </Grid>
