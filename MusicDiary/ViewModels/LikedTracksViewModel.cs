@@ -13,11 +13,13 @@ namespace MusicDiary.ViewModels
     class LikedTracksViewModel : ViewModelBase
     {
         public ICommand BackCommand { get; }
+        public ICommand AddTrackCommand { get; }
 
 
-        public LikedTracksViewModel(NavigationService homePageNavigationSErvice)
+        public LikedTracksViewModel(NavigationService homePageNavigationSErvice, NavigationService addTrackNavigationService)
         {
             BackCommand = new NavigateCommand(homePageNavigationSErvice);
+            AddTrackCommand = new NavigateCommand(addTrackNavigationService);
         }
     }
 }
