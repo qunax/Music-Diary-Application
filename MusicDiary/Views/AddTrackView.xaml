@@ -24,7 +24,7 @@
                         <Button Content=" Add Personal Cover" Margin="10 20 10 0" Style="{StaticResource MaterialDesignFlatLightBgButton }" />
                     </StackPanel>
                     <Button Content="Cancel Addition" VerticalAlignment="Bottom" Margin="10 0 10 70" Style="{StaticResource MaterialDesignFlatLightButton}" Command="{Binding CancelCommand}"/>
-                    <Button Content="Submit" VerticalAlignment="Bottom" Margin="10 0 10 20" Style="{StaticResource MaterialDesignFlatMidBgButton}" />
+                    <Button Content="Submit" VerticalAlignment="Bottom" Margin="10 0 10 20" Style="{StaticResource MaterialDesignFlatMidBgButton}" Command="{Binding SubmitCommand}" />
                 </Grid>
             </Border>
         </Grid>
@@ -37,15 +37,15 @@
                 <Grid>
                     <StackPanel >
                         <TextBlock Text="Track Title" FontSize="25 " FontWeight="Bold" Margin=" 25 20 0 20"/>
-                        <TextBox materialDesign:HintAssist.Hint=" Enter a Track Title" Margin="20 0" Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                        <TextBox materialDesign:HintAssist.Hint=" Enter a Track Title" Margin="20 0" Style="{StaticResource MaterialDesignOutlinedTextBox}" Text="{Binding TrackTitle, UpdateSourceTrigger=PropertyChanged}" />
                         <TextBlock Text="Genre" FontSize="25 " FontWeight="Bold" Margin=" 25 20 0 20"/>
-                        <TextBox materialDesign:HintAssist.Hint=" Enter Track's Genre" Margin="20 0" Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                        <TextBox materialDesign:HintAssist.Hint=" Enter Track's Genre" Margin="20 0" Style="{StaticResource MaterialDesignOutlinedTextBox}" Text="{Binding TrackGenre, UpdateSourceTrigger=PropertyChanged}" />
                         <TextBlock Text="Album Name" FontSize="25 " FontWeight="Bold" Margin=" 25 20 0 20"/>
-                        <TextBox materialDesign:HintAssist.Hint=" Enter Album Name" Margin="20 0" Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                        <TextBox materialDesign:HintAssist.Hint=" Enter Album Name" Margin="20 0" Style="{StaticResource MaterialDesignOutlinedTextBox}" Text="{Binding TrackAlbumName, UpdateSourceTrigger=PropertyChanged}" />
                         <TextBlock Text="Artist Name" FontSize="25 " FontWeight="Bold" Margin=" 25 20 0 20"/>
-                        <TextBox materialDesign:HintAssist.Hint=" Enter Artist Name" Margin="20 0" Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+                        <TextBox materialDesign:HintAssist.Hint=" Enter Artist Name" Margin="20 0" Style="{StaticResource MaterialDesignOutlinedTextBox}" Text="{Binding TrackArtistName, UpdateSourceTrigger=PropertyChanged}" />
                         <TextBlock Text="Track Text" FontSize="25 " FontWeight="Bold" Margin=" 25 20 0 20"/>
-                        <TextBox materialDesign:HintAssist.Hint=" Enter a Link to a Text of the Track" Margin="20 0" Style="{StaticResource MaterialDesignOutlinedTextBox}" Height="170" />
+                        <TextBox materialDesign:HintAssist.Hint=" Enter a Link to a Text of the Track" Margin="20 0" Style="{StaticResource MaterialDesignOutlinedTextBox}" Text="{Binding TrackTextLink, UpdateSourceTrigger=PropertyChanged}" Height="170" />
                     </StackPanel>
                 </Grid>
             </Border>
