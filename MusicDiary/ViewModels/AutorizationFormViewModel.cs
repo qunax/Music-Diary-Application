@@ -44,7 +44,7 @@ namespace MusicDiary.ViewModels
 
         public AutorizationFormViewModel(NavigationService makeRegistrationNavigationService, NavigationService mainMenuNavigationService)
         {
-            LogInCommand = new NavigateCommand(mainMenuNavigationService);
+            LogInCommand = new LogInCommand(this, mainMenuNavigationService);
             HaveNoAccountCommand = new NavigateCommand(makeRegistrationNavigationService);
         }
     }
