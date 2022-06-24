@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 namespace MusicDiary.Views
 {
     /// <summary>
-    /// Логика взаимодействия для LikedAlbumsView.xaml
+    /// Логика взаимодействия для MakePlaylistView.xaml
     /// </summary>
-    public partial class LikedAlbumsView : UserControl
+    public partial class MakePlaylistView : UserControl
     {
-        public LikedAlbumsView()
+        public MakePlaylistView()
         {
             InitializeComponent();
         }

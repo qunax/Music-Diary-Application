@@ -12,12 +12,11 @@ namespace MusicDiary.Models
 
 
         public string Name { get; set; }
-        public string Genre { get; set; }
+        public string Cover { get; set; }
 
-        public Playlist(string name, string genre)
+        public Playlist(string name)
         {
             Name = name;
-            Genre = genre;
 
             _tracks = new List<Track>();
         }

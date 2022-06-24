@@ -19,8 +19,7 @@
                     <Image Source="/Views/album.png" Width="180" Height="180" />
                 </Grid>
                 <Grid Grid.Row="1" >
-                    <TextBlock FontSize="17" FontWeight="Bold"  Text="Album__name"  HorizontalAlignment="Left"  Margin="10 2 0 2 " TextWrapping="WrapWithOverflow"/>
-                    <TextBlock FontSize="14" FontWeight="Light"  Text="Artist__name"  HorizontalAlignment="Left"  Margin="10 20 0 2 " TextWrapping="WrapWithOverflow"/>
+                    <TextBlock FontSize="17" FontWeight="Bold"  Text="Playlist__name"  HorizontalAlignment="Left"  Margin="10 2 0 2 " TextWrapping="WrapWithOverflow"/>
                 </Grid>
             </Grid>
         </Border>

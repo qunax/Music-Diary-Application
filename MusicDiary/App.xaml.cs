@@ -73,18 +73,28 @@ namespace MusicDiary
         
         private LikedArtistsViewModel CreateLikedArtistsViewModel()
         {
-            return new LikedArtistsViewModel(new NavigationService(_innerNavigationStore, CreateHomePageViewModel));
+            return new LikedArtistsViewModel(new NavigationService(_innerNavigationStore, CreateHomePageViewModel), new NavigationService(_navigationStore, CreateAddArtistViewModel));
         }
 
-        private LikedAlbumsViewModel CreateLikedAlbumsViewModel()
+        private MyPlaylistsViewModel CreateLikedAlbumsViewModel()
         {
-            return new LikedAlbumsViewModel(new NavigationService(_innerNavigationStore, CreateHomePageViewModel));
+            return new MyPlaylistsViewModel(new NavigationService(_innerNavigationStore, CreateHomePageViewModel), new NavigationService(_navigationStore, CreateMakePlaylistViewModel));
         }      
         
 
         private AddTrackViewModel CreateAddTrackViewModel()
         {
             return new AddTrackViewModel(new NavigationService(_navigationStore, CreateMainMenuViewModel));
+        }
+
+        private AddArtistViewModel CreateAddArtistViewModel()
+        {
+            return new AddArtistViewModel(new NavigationService(_navigationStore, CreateMainMenuViewModel));
+        }
+
+        private MakePlaylistViewModel CreateMakePlaylistViewModel()
+        {
+            return new MakePlaylistViewModel(new NavigationService(_navigationStore, CreateMainMenuViewModel));
         }
     }
 }

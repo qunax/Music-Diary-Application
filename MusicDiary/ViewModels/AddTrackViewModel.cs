@@ -12,6 +12,21 @@ namespace MusicDiary.ViewModels
     public class AddTrackViewModel : ViewModelBase
     {
         private string _trackTitle;
+
+        private string _trackCover;
+        public string TrackCover
+        {
+            get
+            {
+                return _trackCover;
+            }
+            set
+            {
+                _trackCover = value;
+                OnPropertyChanged(nameof(TrackCover));
+            }
+        }
+
         public string TrackTitle
         {
             get
@@ -67,17 +82,17 @@ namespace MusicDiary.ViewModels
             }
         }
 
-        private string _trackTextLink;
-        public string TrackTextLink
+        private string _trackText;
+        public string TrackText
         {
             get
             {
-                return _trackTextLink;
+                return _trackText;
             }
             set
             {
-                _trackTextLink = value;
-                OnPropertyChanged(nameof(TrackTextLink));
+                _trackText = value;
+                OnPropertyChanged(nameof(TrackText));
             }
         }
 

@@ -38,7 +38,8 @@
 
             <Grid Grid.Row="1">
                 <Border Margin="5" Background="White" CornerRadius="15"  >
-                    <ListView ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center">
+                    <ListView ItemsSource="{Binding Artists}" ScrollViewer.HorizontalScrollBarVisibility="Disabled" HorizontalContentAlignment="Center"
+                              ScrollViewer.CanContentScroll="False">
                         <ListView.ItemsPanel >
                             <ItemsPanelTemplate >
                                 <WrapPanel Orientation="Horizontal" HorizontalAlignment="Center" />
@@ -46,7 +47,33 @@
                         </ListView.ItemsPanel>
                         <ListView.ItemTemplate >
                             <DataTemplate >
-                                <ContentControl Name="OneOfTracks" />
+                                <Grid>
+                                    <Border Background="#c1e0e0" CornerRadius="15" Padding="10">
+                                        <Grid >
+                                            <Grid.RowDefinitions >
+                                                <RowDefinition Height="190"/>
+                                                <RowDefinition Height="*"/>
+                                            </Grid.RowDefinitions>
+
+
+                                            <Grid Grid.Row="0">
+                                                <Image Width="180" Height="180" >
+                                                    <Image.Source >
+                                                        <Binding Path="ArtistAvatar" >
+                                                            <Binding.TargetNullValue>
+                                                                <ImageSource>artist.png</ImageSource>
+                                                            </Binding.TargetNullValue>
+                                                        </Binding>
+                                                    </Image.Source>
+                                                </Image>
+                                            </Grid>
+                                            <Grid Grid.Row="1" >
+                                                <TextBlock FontSize="17" FontWeight="Bold"  Text="{Binding ArtistName}"  HorizontalAlignment="Left"  Margin="10 2 0 2 " TextWrapping="WrapWithOverflow" />
+                                                <TextBlock FontSize="14" FontWeight="Light"  Text="Artist"  HorizontalAlignment="Left"  Margin="10 20 0 2 " TextWrapping="WrapWithOverflow" />
+                                            </Grid>
+                                        </Grid>
+                                    </Border>
+                                </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
                     </ListView>
@@ -54,7 +81,7 @@
             </Grid>
 
             <Grid Grid.Row="2">
-                <Button Content="Add a New Artist" Margin="5 0 5 5" />
+                <Button Content="Add a New Artist" Margin="5 0 5 5" Command="{Binding AddArtistCommand}" Cursor="Hand"/>
             </Grid>
         </Grid>
     </Grid>

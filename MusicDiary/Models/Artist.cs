@@ -9,11 +9,18 @@ namespace MusicDiary.Models
     public class Artist
     {
         private readonly List<Track> _tracks;
-        private readonly List<Album> _albums;
 
 
         public string Name { get; set; }
         public string InfoAbout { get; set; }
+        public string Avatar { get; set; }
 
+
+        public Artist(string name)
+        {
+            _tracks = new List<Track>();
+
+            Name = name;
+        }
     }
 }

@@ -26,7 +26,7 @@ namespace MusicDiary.ViewModels
 
             OpenLikedTracksCommand = new NavigateCommand(likedTracksNavigationService);
             OpenLikedArtistsCommand = new NavigateCommand(likedArtistsNavigationService);
-            OpenLikedAlbumsCommand = new NavigateCommand(likedAlbumsNavigationService);
+            OpenMyPlaylistsCommand = new NavigateCommand(likedAlbumsNavigationService);
 
         }
 
@@ -37,6 +37,6 @@ namespace MusicDiary.ViewModels
 
         public ICommand OpenLikedTracksCommand { get; }
         public ICommand OpenLikedArtistsCommand { get; }
-        public ICommand OpenLikedAlbumsCommand { get; }
+        public ICommand OpenMyPlaylistsCommand { get; }
     }
 }

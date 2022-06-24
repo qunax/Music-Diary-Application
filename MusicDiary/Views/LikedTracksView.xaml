@@ -37,13 +37,59 @@
             </Grid>
 
             <Grid Grid.Row="1">
-                <Border Margin="5" Background="White" CornerRadius="15"  >
-                    <ListView>
+                <Border Margin="5" Background="White" CornerRadius="15" Padding="10" >
+                    <ListView ItemsSource="{Binding Tracks}" ScrollViewer.CanContentScroll="False" >
                         <ListView.ItemTemplate >
                             <DataTemplate >
-                                <ContentControl Name="OneOfTracks" />
+                                <Grid MinWidth="605" Height="75" >
+                                    <Border  Background="#c1e0e0" CornerRadius="15">
+                                        <Grid >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="100"/>
+                                                <ColumnDefinition  Width="*"/>
+                                                <ColumnDefinition Width="100"/>
+                                            </Grid.ColumnDefinitions>
+
+
+                                            <Grid  Grid.Column="0">
+                                                <Image Width="75" Height="75">
+                                                    <Image.Source >
+                                                        <Binding Path="TrackCover" >
+                                                            <Binding.TargetNullValue>
+                                                                <ImageSource>FlatDisc_DiaryOfMeloman.png</ImageSource>
+                                                            </Binding.TargetNullValue>
+                                                        </Binding>
+                                                    </Image.Source>
+                                                </Image>
+                                            </Grid>
+
+                                            <Grid  Grid.Column="1">
+                                                <StackPanel >
+                                                    <TextBlock FontSize="20" FontWeight="Bold" Margin="0 10 0 5" Text="{Binding TrackName}"></TextBlock>
+                                                    <TextBlock FontWeight="Light" Text="{Binding ArtistOfTrack}"></TextBlock>
+                                                </StackPanel>
+                                            </Grid>
+
+                                            <Grid Grid.Column="2">
+                                                <StackPanel >
+                                                    <Button Style="{StaticResource MaterialDesignIconButton}" Height="30" Width="30" HorizontalAlignment="Right" Margin="0 5 15 0">
+                                                        <Image Source="/Views/remove-icon-24.jpg" Width="25" Height="25"></Image>
+                                                    </Button>
+                                                    <Button Style="{StaticResource MaterialDesignIconButton}" Height="30" Width="30" HorizontalAlignment="Right" Margin="0 5 14 0">
+                                                        <Image Source="/Views/three-dots button.png" Width="25" Height="25"></Image>
+                                                    </Button>
+                                                </StackPanel>
+                                            </Grid>
+                                        </Grid>
+                                    </Border>
+                                </Grid>
                             </DataTemplate>
                         </ListView.ItemTemplate>
+                        <ListView.ItemContainerStyle >
+                            <Style TargetType="ListViewItem">
+                                <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
+                            </Style>
+                        </ListView.ItemContainerStyle>
                     </ListView>
                 </Border>
             </Grid>

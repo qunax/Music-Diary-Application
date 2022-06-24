@@ -14,6 +14,8 @@ namespace MusicDiary.Commands
         private AddTrackViewModel _addTrackViewModel;
         private readonly NavigationService _mainMenunavigationService;
 
+
+
         public AddNewTrackCommand(AddTrackViewModel addTrackViewModel, NavigationService mainMenuNavigationService)
         {
             _addTrackViewModel = addTrackViewModel;
@@ -26,8 +28,7 @@ namespace MusicDiary.Commands
             if (e.PropertyName == nameof(AddTrackViewModel.TrackTitle) ||
                 e.PropertyName == nameof(AddTrackViewModel.TrackGenre) ||
                 e.PropertyName == nameof(AddTrackViewModel.TrackAlbumName) ||
-                e.PropertyName == nameof(AddTrackViewModel.TrackArtistName) ||
-                e.PropertyName == nameof(AddTrackViewModel.TrackTextLink))
+                e.PropertyName == nameof(AddTrackViewModel.TrackArtistName))
             {
                 OnCanExecuteChanged();
             }
@@ -39,7 +40,6 @@ namespace MusicDiary.Commands
                 && !string.IsNullOrEmpty(_addTrackViewModel.TrackGenre)
                 && !string.IsNullOrEmpty(_addTrackViewModel.TrackAlbumName)
                 && !string.IsNullOrEmpty(_addTrackViewModel.TrackArtistName)
-                && !string.IsNullOrEmpty(_addTrackViewModel.TrackTextLink)
                 && base.CanExecute(parameter);
         }
 

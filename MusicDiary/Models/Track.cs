@@ -10,10 +10,19 @@ namespace MusicDiary.Models
     {
         public string Name { get; set; }
         public string Genre { get; set; }
-        public Album Album { get; set; }
+        public int Year { get; set; }
         public Artist Artist { get; set; }
 
         public string Cover { get; set; }
+
+
+        public Track(string name, string genre, int year, Artist artist)
+        {
+            Name = name;
+            Genre = genre;
+            Year = year;
+            Artist = artist;
+        }
 
     }
 }
