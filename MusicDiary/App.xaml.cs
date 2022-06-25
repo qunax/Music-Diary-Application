@@ -1,4 +1,10 @@
-﻿using MusicDiary.Services;
+﻿using Microsoft.EntityFrameworkCore;
+using MusicDiary.DBContexts;
+using MusicDiary.Models;
+using MusicDiary.Services;
+using MusicDiary.Services.ConflictValidators;
+using MusicDiary.Services.Creators;
+using MusicDiary.Services.Providers;
 using MusicDiary.Stores;
 using MusicDiary.ViewModels;
 using System;
@@ -16,17 +22,37 @@ namespace MusicDiary
     /// </summary>
     public partial class App : Application
     {
+        private const string CONNECTION_STRING = "Data Source=musicDiary.db";
+
+        private readonly AllUsers _allUsers;
+
         private readonly NavigationStore _navigationStore;
         private readonly NavigationStore _innerNavigationStore;
+
+        private readonly MusicDiaryDbContextFactory _musicDiaryDbContextFactory;
 
         public App()
         {
             _navigationStore = new NavigationStore();
             _innerNavigationStore = new NavigationStore();
+
+            _musicDiaryDbContextFactory = new MusicDiaryDbContextFactory(CONNECTION_STRING);
+
+            IUserProvider userProvider = new DatabaseUserProvider(_musicDiaryDbContextFactory);
+            IUserCreator userCreator = new DatabaseUserCreator(_musicDiaryDbContextFactory);
+            IRegistrationConflictValidator registrationConflictValidator = new DatabaseRegistrationConflictValidator(_musicDiaryDbContextFactory);
+            _allUsers = new AllUsers(userProvider, userCreator, registrationConflictValidator);
         }
 
         protected override void OnStartup(StartupEventArgs e)
         {
+
+            using (MusicDiaryDbContext dbContext = _musicDiaryDbContextFactory.CreateDbContext())
+            {
+                dbContext.Database.Migrate();
+            }
+
+
             _navigationStore.CurrentViewModel = CreateAutorizationFormViewModel();
             _innerNavigationStore.CurrentViewModel = CreateHomePageViewModel();
 
@@ -44,7 +70,7 @@ namespace MusicDiary
 
         private MakeRegistrationViewModel CreateMakeRegistrationViewModel()
         {
-            return new MakeRegistrationViewModel(new NavigationService(_navigationStore, CreateAutorizationFormViewModel));
+            return new MakeRegistrationViewModel(new NavigationService(_navigationStore, CreateAutorizationFormViewModel), _allUsers);
         }
 
         private AutorizationFormViewModel CreateAutorizationFormViewModel()

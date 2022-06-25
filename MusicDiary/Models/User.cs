@@ -8,10 +8,35 @@ namespace MusicDiary.Models
 {
     public class User
     {
-        public string UserName { get; set; }
-        public string PassWord { get; set; }
+
+
+
+
+        private readonly List<Track> _tracks;
+        private readonly List<Playlist> _playlists;
+        private readonly List<Artist> _artists;
+
+
+
+
+        public int Id { get; set; }
+        public string Username { get; set; }
+        public string Password { get; set; }
         public string Email { get; set; }
 
 
+
+
+        public bool Conflicts(User user)
+        {
+            if(user.Username != Username)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
     }
 }

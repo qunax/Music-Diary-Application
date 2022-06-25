@@ -23,36 +23,7 @@ namespace MusicDiary.ViewModels
 
         public MyPlaylistsViewModel(NavigationService homePageNavigationSErvice, NavigationService makePlaylistNavigationService)
         {
-            _playlists = new ObservableCollection<PlaylistViewModel>();
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
-
-            _playlists.Add(new PlaylistViewModel(new Playlist("My Playlist")));
+            
 
             BackCommand = new NavigateCommand(homePageNavigationSErvice);
             MakePlaylistCommand = new NavigateCommand(makePlaylistNavigationService);

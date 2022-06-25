@@ -27,21 +27,7 @@ namespace MusicDiary.ViewModels
 
         public LikedArtistsViewModel(NavigationService homePageNavigationSErvice, NavigationService addArtistNavigationService)
         {
-            _artists = new ObservableCollection<ArtistViewModel>();
-            _artists.Add(new ArtistViewModel(new Artist("NF")));
-            _artists.Add(new ArtistViewModel(new Artist("NF")));
-            _artists.Add(new ArtistViewModel(new Artist("NF")));
-            _artists.Add(new ArtistViewModel(new Artist("NF")));
-            _artists.Add(new ArtistViewModel(new Artist("NF")));
-            _artists.Add(new ArtistViewModel(new Artist("NF")));
-            _artists.Add(new ArtistViewModel(new Artist("NF")));
-            _artists.Add(new ArtistViewModel(new Artist("NF")));
-            _artists.Add(new ArtistViewModel(new Artist("NF")));
-            _artists.Add(new ArtistViewModel(new Artist("NF")));
-            _artists.Add(new ArtistViewModel(new Artist("NF")));
-            _artists.Add(new ArtistViewModel(new Artist("NF")));
-            _artists.Add(new ArtistViewModel(new Artist("NF")));
-            _artists.Add(new ArtistViewModel(new Artist("NF")));
+            
 
 
             BackCommand = new NavigateCommand(homePageNavigationSErvice);

@@ -1,7 +1,9 @@
 ﻿using MusicDiary.Commands;
+using MusicDiary.Models;
 using MusicDiary.Services;
 using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,7 +13,13 @@ namespace MusicDiary.ViewModels
 {
     public class AddTrackViewModel : ViewModelBase
     {
-        private string _trackTitle;
+        private readonly ObservableCollection<ArtistViewModel> _artists;
+
+        public IEnumerable<ArtistViewModel> Artists => _artists;
+
+
+
+
 
         private string _trackCover;
         public string TrackCover
@@ -27,6 +35,8 @@ namespace MusicDiary.ViewModels
             }
         }
 
+
+        private string _trackTitle;
         public string TrackTitle
         {
             get
@@ -104,6 +114,12 @@ namespace MusicDiary.ViewModels
 
         public AddTrackViewModel(NavigationService mainMenuNavigationService)
         {
+            _artists = new ObservableCollection<ArtistViewModel>();
+            _artists.Add(new ArtistViewModel(new Artist("NF")));
+            _artists.Add(new ArtistViewModel(new Artist("Post Malone")));
+            _artists.Add(new ArtistViewModel(new Artist("Logic")));
+
+
             CancelCommand = new NavigateCommand(mainMenuNavigationService);
             SubmitCommand = new AddNewTrackCommand(this, mainMenuNavigationService);
         }

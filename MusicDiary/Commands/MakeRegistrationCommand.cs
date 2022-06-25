@@ -1,4 +1,5 @@
-﻿using MusicDiary.Models;
+﻿using MusicDiary.Exceptions;
+using MusicDiary.Models;
 using MusicDiary.Services;
 using MusicDiary.ViewModels;
 using System;
@@ -7,6 +8,7 @@ using System.ComponentModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 
 namespace MusicDiary.Commands
 {
@@ -14,16 +16,19 @@ namespace MusicDiary.Commands
     {
         private MakeRegistrationViewModel _makeRegistrationViewModel;
         private readonly NavigationService _autorizationFormNavigationService;
+        private readonly AllUsers _allUsers;
 
 
 
-        public MakeRegistrationCommand(MakeRegistrationViewModel makeRegistrationViewModel, NavigationService autorizationFormNavigationService)
+        public MakeRegistrationCommand(MakeRegistrationViewModel makeRegistrationViewModel, NavigationService autorizationFormNavigationService, AllUsers allUsers)
         {
             _makeRegistrationViewModel = makeRegistrationViewModel;
 
             _makeRegistrationViewModel.PropertyChanged += OnViewModelPropertyChanged;
 
             _autorizationFormNavigationService = autorizationFormNavigationService;
+
+            _allUsers = allUsers;
         }
 
         private void OnViewModelPropertyChanged(object sender, PropertyChangedEventArgs e)
@@ -47,16 +52,36 @@ namespace MusicDiary.Commands
         }
 
 
-        public override void Execute(object parameter)
+        public override async void Execute(object parameter)
         {
+            if(_makeRegistrationViewModel.NewPassword != _makeRegistrationViewModel.RepeatPassword)
+            {
+                MessageBox.Show("Repeated password isn't correct. Try again.", "Error",
+                   MessageBoxButton.OK, MessageBoxImage.Error);
+                
+            }
+
             User user = new User();
 
-            user.UserName = _makeRegistrationViewModel.NewUsername;
-            user.PassWord = _makeRegistrationViewModel.NewPassword;
+            user.Username = _makeRegistrationViewModel.NewUsername;
+            user.Password = _makeRegistrationViewModel.NewPassword;
             user.Email = _makeRegistrationViewModel.Email;
 
-
-            _autorizationFormNavigationService.Navigate();
+            try
+            {
+                await _allUsers.CreateUser(user);
+                _autorizationFormNavigationService.Navigate();
+            }
+            catch (RegistrationConflictException)
+            {
+                MessageBox.Show("This Username is already taken", "Error",
+                   MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Failed to make registration.", "Error",
+                   MessageBoxButton.OK, MessageBoxImage.Error);
+            }
         }
     }
 }

@@ -51,11 +51,15 @@
                         <TextBlock Text="Album Name" FontSize="25 " FontWeight="Bold" Margin=" 25 20 0 20"/>
                         <TextBox materialDesign:HintAssist.Hint=" Enter Album Name" Margin="20 0" Style="{StaticResource MaterialDesignOutlinedTextBox}" Text="{Binding TrackAlbumName, UpdateSourceTrigger=PropertyChanged}" />
                         <TextBlock Text="Artist Name" FontSize="25 " FontWeight="Bold" Margin=" 25 20 0 20"/>
-                        <TextBox materialDesign:HintAssist.Hint=" Enter Artist Name" Margin="20 0" Style="{StaticResource MaterialDesignOutlinedTextBox}" Text="{Binding TrackArtistName, UpdateSourceTrigger=PropertyChanged}" />
+                        <ComboBox HorizontalAlignment="Left"
+                                  VerticalAlignment="Top" Width="150" Margin="20 0 0 0" 
+                                  Style="{StaticResource MaterialDesignFloatingHintComboBox}"
+                                  ItemsSource="{Binding Path=Artists}" DisplayMemberPath="ArtistName" Text="{Binding TrackArtistName}">
+                        </ComboBox>
                         <TextBlock Text="Track Text" FontSize="25 " FontWeight="Bold" Margin=" 25 20 0 20"/>
                         <TextBox materialDesign:HintAssist.Hint=" Enter Text of the Track" Margin="20 0"
                                  TextWrapping="Wrap" AcceptsReturn="True" HorizontalScrollBarVisibility="Disabled" VerticalScrollBarVisibility="Auto"
-                                 Style="{StaticResource MaterialDesignOutlinedTextBox}" Text="{Binding TrackText, UpdateSourceTrigger=PropertyChanged}" Height="170" />
+                                 Style="{StaticResource MaterialDesignOutlinedTextBox}" Text="{Binding TrackText, UpdateSourceTrigger=PropertyChanged}" Height="170" Cursor="Arrow" />
                     </StackPanel>
                 </Grid>
             </Border>

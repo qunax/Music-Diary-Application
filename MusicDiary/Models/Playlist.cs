@@ -11,30 +11,14 @@ namespace MusicDiary.Models
         private readonly List<Track> _tracks;
 
 
+
+        public int Id { get; set; }
         public string Name { get; set; }
         public string Cover { get; set; }
 
-        public Playlist(string name)
-        {
-            Name = name;
-
-            _tracks = new List<Track>();
-        }
+        
 
 
-        public IEnumerable<Track> GetAllTracks()
-        {
-            return _tracks;
-        }
-
-        public void AddTrack(Track track)
-        {
-            _tracks.Add(track);
-        }
-
-        public void DeleteTrack(Track track)
-        {
-            _tracks.Remove(track);
-        }
+        
     }
 }

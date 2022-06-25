@@ -1,4 +1,5 @@
-﻿using MusicDiary.Services;
+﻿using MusicDiary.Models;
+using MusicDiary.Services;
 using MusicDiary.ViewModels;
 using System;
 using System.Collections.Generic;
@@ -45,6 +46,14 @@ namespace MusicDiary.Commands
 
         public override void Execute(object parameter)
         {
+            Track track = new Track
+            {
+                Title = _addTrackViewModel.TrackTitle,
+                Genre = _addTrackViewModel.TrackGenre,
+            };
+
+
+
             _mainMenunavigationService.Navigate();
         }
     }

@@ -8,21 +8,14 @@ namespace MusicDiary.Models
 {
     public class Track
     {
-        public string Name { get; set; }
+        public Guid Id { get; set; }
+        public string Title { get; set; }
         public string Genre { get; set; }
-        public int Year { get; set; }
+        public int ArtistId { get; set; }
         public Artist Artist { get; set; }
 
         public string Cover { get; set; }
 
-
-        public Track(string name, string genre, int year, Artist artist)
-        {
-            Name = name;
-            Genre = genre;
-            Year = year;
-            Artist = artist;
-        }
 
     }
 }

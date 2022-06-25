@@ -28,10 +28,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DBContexts\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Resource Include="Views\album.png" />
     <Resource Include="Views\artist.png" />
     <Resource Include="Views\back_button.png" />

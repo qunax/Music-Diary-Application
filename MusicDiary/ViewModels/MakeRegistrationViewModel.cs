@@ -1,4 +1,5 @@
 ﻿using MusicDiary.Commands;
+using MusicDiary.Models;
 using MusicDiary.Services;
 using MusicDiary.Stores;
 using System;
@@ -75,9 +76,9 @@ namespace MusicDiary.ViewModels
         public ICommand BackToAutorizationFormCommand { get; }
 
 
-        public MakeRegistrationViewModel(NavigationService autorizationFormNavigationService)
+        public MakeRegistrationViewModel(NavigationService autorizationFormNavigationService, AllUsers allUsers)
         {
-            FinishTheRegistrationCommand = new MakeRegistrationCommand(this, autorizationFormNavigationService);
+            FinishTheRegistrationCommand = new MakeRegistrationCommand(this, autorizationFormNavigationService, allUsers);
             BackToAutorizationFormCommand = new NavigateCommand(autorizationFormNavigationService);
         }
     }

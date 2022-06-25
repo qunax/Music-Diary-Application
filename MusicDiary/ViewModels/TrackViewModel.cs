@@ -11,9 +11,8 @@ namespace MusicDiary.ViewModels
     {
         private readonly Track _track;
 
-        public string TrackName => _track.Name;
+        public string TrackName => _track.Title;
         public string TrackGenre => _track.Genre;
-        public string YearOfTrack => _track.Year.ToString();
         public string ArtistOfTrack => _track.Artist.Name.ToString();
 
         public string TrackCover => _track?.Cover;

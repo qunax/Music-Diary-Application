@@ -25,20 +25,6 @@ namespace MusicDiary.ViewModels
 
         public LikedTracksViewModel(NavigationService homePageNavigationSErvice, NavigationService addTrackNavigationService)
         {
-            _tracks = new ObservableCollection<TrackViewModel>();
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
-
-
             BackCommand = new NavigateCommand(homePageNavigationSErvice);
             AddTrackCommand = new NavigateCommand(addTrackNavigationService);
         }

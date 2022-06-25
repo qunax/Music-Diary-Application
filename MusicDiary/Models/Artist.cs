@@ -10,17 +10,17 @@ namespace MusicDiary.Models
     {
         private readonly List<Track> _tracks;
 
+        public Artist(string name)
+        {
+            Name = name;
+        }
 
+        public Guid Id { get; set; }
         public string Name { get; set; }
         public string InfoAbout { get; set; }
         public string Avatar { get; set; }
 
 
-        public Artist(string name)
-        {
-            _tracks = new List<Track>();
-
-            Name = name;
-        }
+        
     }
 }

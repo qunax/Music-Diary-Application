@@ -53,18 +53,7 @@ namespace MusicDiary.ViewModels
 
         public MakePlaylistViewModel(NavigationService mainMenuNavigationService)
         {
-            _tracks = new ObservableCollection<TrackViewModel>();
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
-            _tracks.Add(new TrackViewModel(new Track("NAME", "genre", 2015, new Artist("artist"))));
+            
 
 
 
